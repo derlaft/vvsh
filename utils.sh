@@ -11,8 +11,12 @@ require() {
   wsh_compile $@
 }
 
+app() {
+  APP="$@"
+}
+
 import() {
-  source ./lib/$1.sh
+  source "$LIBS/$APP/$1.sh"
 }
 
 header() {

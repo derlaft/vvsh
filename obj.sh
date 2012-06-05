@@ -74,10 +74,10 @@ wsh_readform() {
   for pair in $info; do
 
     
-    type=$(echo "$pair" |cut -d';' -f1)
-    name=$(echo "$pair" |cut -d';' -f2)
-    temp=$(echo "$pair" |cut -d';' -f3)
-    filename=$(echo "$pair" |cut -d';' -f4)
+    type=$(echo "$pair" |cut -d';' -f1 | sed -e 's/%20/ /g')
+    name=$(echo "$pair" |cut -d';' -f2 | sed -e 's/%20/ /g')
+    temp=$(echo "$pair" |cut -d';' -f3 | sed -e 's/%20/ /g')
+    filename=$(echo "$pair" |cut -d';' -f4 | sed -e 's/%20/ /g')
 
     filename=$(echo "$filename" | sed -e 's/[\/`$]//g;s/^\///')
     
@@ -140,11 +140,13 @@ wsh_compile() {
   #now we can run it
   echo -e "$wsh" > $temp
   source $temp
+
+  #echo "=>$1<=" 1>&2
+  #cat $temp 1>&2
+  #echo '===' 1>&2
   
   #and delete
   #in the future - move to the cache
-  echo "=>$1<=" 1>&2
-  cat $temp 1>&2
-  echo '===' 1>&2
+  
   rm $temp
 }

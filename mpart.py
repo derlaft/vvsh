@@ -23,10 +23,10 @@ for param in form:
 			f.write(chunk)
 		f.close()
 		if not ";" in param and not ";" in form[param].filename:
-			print "file;" + param + ";" + temp + ";" + form[param].filename
+			print "file;" + param.replace(" ", "%20") + ";" + temp.replace(" ", "%20") + ";" + form[param].filename.replace(" ", "%20")
 	else:
 		# Write param to the file
 		f.write(form[param].value)
 		f.close()
 		if not ";" in param:
-			print "param;" + param + ";" + temp 
+			print "param;" + param.replace(" ", "%20") + ";" + temp.replace(" ", "%20")
