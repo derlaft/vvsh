@@ -1,6 +1,6 @@
 #!/bin/bash
 
-[ -z "$CONFIG" ] && source "$(pwd -P)/config.sh"
+[ -z "$CONFIG" ] && source "$(readlink -f $0)/config.sh"
 
 source $DIR/obj.sh
 
