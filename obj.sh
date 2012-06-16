@@ -1,6 +1,8 @@
 #!/bin/bash
 
 source $DIR/utils.sh
+source $DIR/sqlite.sh
+
 declare -A http_params
 declare -A http_cookies
 declare -A http_files
