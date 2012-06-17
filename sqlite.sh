@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sqquery() {
+s3query() {
   local database_name
 
   database_name="$1"; shift
@@ -8,7 +8,7 @@ sqquery() {
   sqlite3 "$database_name" "$@"
 }
 
-sqquery_ok() {
+s3query_ok() {
   local result, database_name
 
   database_name="$1"; shift
@@ -21,7 +21,7 @@ sqquery_ok() {
   fi
 }
 
-sqquery_fail() {
+s3query_fail() {
   local result, database_name
 
   database_name="$1"; shift
@@ -34,6 +34,6 @@ sqquery_fail() {
   fi
 }
 
-sqstrip_quotes() {
+s3strip_quotes() {
   echo -e "$@" | sed -e "s/'/\\\\'/g"
 }
