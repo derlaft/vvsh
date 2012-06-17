@@ -1,6 +1,6 @@
 #!/bin/bash
 
-query() {
+sqlite_query() {
   local database_name
 
   database_name="$1"; shift
@@ -8,7 +8,7 @@ query() {
   sqlite3 "$database_name" "$@"
 }
 
-query_ok() {
+sqlite_query_ok() {
   local result, database_name
 
   database_name="$1"; shift
@@ -21,7 +21,7 @@ query_ok() {
   fi
 }
 
-query_fail() {
+sqlite_query_fail() {
   local result, database_name
 
   database_name="$1"; shift
