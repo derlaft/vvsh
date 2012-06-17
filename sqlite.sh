@@ -34,6 +34,6 @@ sqlite_query_fail() {
   fi
 }
 
-sequre() {
+sqlite_remove_quotes() {
   echo -e "$@" | sed -e "s/'/\\\\'/g"
 }
