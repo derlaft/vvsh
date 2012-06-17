@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sqlite_query() {
+sqquery() {
   local database_name
 
   database_name="$1"; shift
@@ -8,7 +8,7 @@ sqlite_query() {
   sqlite3 "$database_name" "$@"
 }
 
-sqlite_query_ok() {
+sqquery_ok() {
   local result, database_name
 
   database_name="$1"; shift
@@ -21,7 +21,7 @@ sqlite_query_ok() {
   fi
 }
 
-sqlite_query_fail() {
+sqquery_fail() {
   local result, database_name
 
   database_name="$1"; shift
@@ -34,6 +34,6 @@ sqlite_query_fail() {
   fi
 }
 
-sqlite_remove_quotes() {
+sqstrip_quotes() {
   echo -e "$@" | sed -e "s/'/\\\\'/g"
 }
