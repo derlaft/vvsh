@@ -12,7 +12,7 @@ s3query_ok() {
   local result, database_name
 
   database_name="$1"; shift
-  result="$(query "$database_name" "$@")"
+  result="$(s3query "$database_name" "$@")"
 
   if [ -n "$result" ]; then
     return 0
@@ -25,7 +25,7 @@ s3query_fail() {
   local result, database_name
 
   database_name="$1"; shift
-  result="$(query "$database_name" "$@")"
+  result="$(s3query "$database_name" "$@")"
 
   if [ -z "$result" ]; then
     return 0
