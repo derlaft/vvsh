@@ -9,7 +9,7 @@ s3query() {
 }
 
 s3query_ok() {
-  local result, database_name
+  local result database_name
 
   database_name="$1"; shift
   result="$(s3query "$database_name" "$@")"
@@ -22,7 +22,7 @@ s3query_ok() {
 }
 
 s3query_fail() {
-  local result, database_name
+  local result database_name
 
   database_name="$1"; shift
   result="$(s3query "$database_name" "$@")"
