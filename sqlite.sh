@@ -35,5 +35,5 @@ s3query_fail() {
 }
 
 s3strip_quotes() {
-  echo -e "$@" | sed -e "s/'/\\\\'/g"
+  echo -e "$@" | sed -e "s/'/\\\\'/g;s/\\\\/\\\\\\\\/g"
 }
