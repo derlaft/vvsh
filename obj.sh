@@ -8,7 +8,7 @@ declare -A http_cookies
 declare -A http_files
 
 wsh_init() {
-  
+
   #define vars
   local name
   local line
@@ -111,6 +111,11 @@ wsh_clear() {
   for name in "${!http_files[@]}"; do
     rm "${http_files[$name]}"
   done
+
+  #and compiles
+  for file in $temp_all; do
+    rm $file
+  done
 }
 
 wsh_compile() {
@@ -123,8 +128,8 @@ wsh_compile() {
   wsh=$(cat $1)
   
   #make temp file
-  temp=$(mktemp)
-  chmod +x $temp
+  temp_cur=$(mktemp)
+  temp_all="$temp_all $temp_cur"
   
   #wrap all text into echos
   
@@ -140,15 +145,6 @@ wsh_compile() {
   
   
   #now we can run it
-  echo -e "$wsh" > $temp
-  source $temp
-
-  #echo "=>$1<=" 1>&2
-  #cat $temp 1>&2
-  #echo '===' 1>&2
-  
-  #and delete
-  #in the future - move to the cache
-  
-  rm $temp
+  echo -e "$wsh" > $temp_cur
+  source $temp_cur
 }

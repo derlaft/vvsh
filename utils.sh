@@ -3,6 +3,11 @@
 declare -A send_cookies
 DEBUG=true
 
+die() {
+  wsh_clear
+  exit $@
+}
+
 print() {
   echo -ne "$@"
 }
