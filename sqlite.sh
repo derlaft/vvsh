@@ -22,16 +22,8 @@ s3query_ok() {
 }
 
 s3query_fail() {
-  local result database_name
 
-  database_name="$1"; shift
-  result="$(s3query "$database_name" "$@")"
-
-  if [ -z "$result" ]; then
-    return 0
-  else
-    return 42
-  fi
+  ! s3query_ok
 }
 
 s3strip_quotes() {
