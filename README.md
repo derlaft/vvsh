@@ -54,6 +54,9 @@ Wsh-файлы являются обычными html-страницами, за
 * redirect $url - отправляет http-заголовок с редиректом на $url и отправляет cookies, если они есть
 * add_cookie $name $value - создает cookie с именем $name и значением $value
 * debug $mark $text - отправляет в лог веб-сервера $text, помеченный "[DEBUG::$mark]"
+* s3query $DB $query - выполняет запрос $query к sqlite3 базе данных $db, возвращает результат
+* s3query_ok $DB $query - аналогично, но  возвращает true, если результат не пустой
+* s3query_fail $DB $query - противоположно s3query_ok
 
 ###Некоторые замечания
 
